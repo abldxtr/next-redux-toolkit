@@ -1,11 +1,24 @@
 import Image from "next/image";
 import { Movie } from "@/component/data";
 import { CiBookmark } from "react-icons/ci";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector, useAppStore } from "@/redux/hooks";
 import { add } from "@/redux/features/bookmarkSlice";
 import { IoBookmark } from "react-icons/io5";
+import { useRef } from "react";
 
 const MovieItem = ({ movie }: { movie: Movie }) => {
+  // const stateBook = useAppSelector((state) => state.bookmark);
+  // const dispatch = useAppDispatch();
+
+  //
+
+  // Initialize the store with the product information
+  const store = useAppStore();
+  const initialized = useRef(false);
+  if (!initialized.current) {
+    // store.dispatch(add(movie));
+    initialized.current = true;
+  }
   const stateBook = useAppSelector((state) => state.bookmark);
   const dispatch = useAppDispatch();
 

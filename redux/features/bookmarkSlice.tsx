@@ -11,7 +11,7 @@ export interface Movie {
   plot: string;
 }
 
-const initialState: Movie[] = [];
+export const initialState: Movie[] = [];
 
 export const favaSlice = createSlice({
   name: "fava",

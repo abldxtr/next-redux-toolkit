@@ -8,8 +8,7 @@ import MovieItem from "./movieItem";
 export default function Query() {
   const { data, error, isLoading } = useQuery<Movie[]>({
     queryKey: ["movies"],
-    queryFn: () =>
-      fetch("http://localhost:3000/api/data").then((res) => res.json()),
+    queryFn: () => fetch("/api/data").then((res) => res.json()),
   });
   //   console.log(data);
   if (isLoading) {
